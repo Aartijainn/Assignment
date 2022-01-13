@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.parent-div {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+.div-one {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: red;
+    transition: 0.3s;
+    z-index: 4;
+}
+.div-one.animation-eff-one {
+    transition-delay: 0.3s;
+    animation: infinite redeff 3s;
+}
+
+.div-two {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: yellow;
+    transition: 0.3s;
+    z-index: 3;
+}
+.div-two.animation-eff-two {
+    transition-delay: 0.3s;
+    animation: infinite yelloweff 3s;
+}
+
+.div-three {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: green;
+    transition: 0.3s;
+}
+.div-three.animation-eff-three {
+    transition-delay: 0.3s;
+    animation: infinite greeneff 3s;
+}
+.addCSS {
+    color: blue;
+}
+
+.div-four {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: rgb(6, 133, 218);
+    transition: 0.3s;
+}
+.div-four.animation-eff-four {
+    transition-delay: 0.3s;
+    animation: infinite blueeff 3s;
+}
+
+
+.button-g {
+    display: flex;
+    justify-content: space-between;
+}
+
+@keyframes redeff {
+    50%{width: 100px; transition: 0.3s;}
+    100%{width: 30px; transition: 0.3s;}
+}
+@keyframes yelloweff {
+    50%{height: 100px; transition: 0.3s;}
+    100%{height: 30px; transition: 0.3s;}
+}
+@keyframes greeneff {
+    50%{height: 100px; transition: 0.3s;}
+    100%{height: 30px; transition: 0.3s;}
+}
+@keyframes blueeff {
+    50%{width: 100px; transition: 0.3s;}
+    100%{width: 30px; transition: 0.3s;}
+}
+</style>
+<body>
+
+    <section>
+        <div class="parent-div">
+            <div>
+                <div class="div-one"></div>
+                <div class="div-two"></div>
+            </div>
+            <div>
+                <div class="div-three"></div>
+                <div class="div-four"></div>
+            </div>
+        </div>
+        <div class="button-g">
+            <button onclick="start()" class="button-start">Start</button>
+            <button onclick="stop()" class="button-stop">Stop</button>
+        </div>
+    </section>
+    
+    
+</body>
+    <script>
+        
+        var allclsone = document.querySelector('.div-one'); 
+        var allclstwo = document.querySelector('.div-two');
+        var allclsthree = document.querySelector('.div-three');
+        var allclsfour = document.querySelector('.div-four'); 
+
+        function start() {
+            allclsone.classList.add('animation-eff-one');
+            allclstwo.classList.add('animation-eff-two'); 
+            allclsthree.classList.add('animation-eff-three');
+            allclsfour.classList.add('animation-eff-four');
+        }
+        function stop() {
+            allclsone.classList.remove('animation-eff-one');
+            allclstwo.classList.remove('animation-eff-two'); 
+            allclsthree.classList.remove('animation-eff-three');
+            allclsfour.classList.remove('animation-eff-four');
+        }
+    </script>
+</html>
